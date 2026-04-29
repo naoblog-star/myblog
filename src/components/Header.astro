@@ -4,59 +4,87 @@ import HeaderLink from './HeaderLink.astro';
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
+	<div class="header-inner">
+		<div class="site-title-wrap">
+			<a href="/" class="site-title">
+				<span class="deco">✿</span>
+				{SITE_TITLE}
+				<span class="deco">✿</span>
+			</a>
+			<p class="site-sub">韓ドラ ・ 子育て ・ 教育</p>
+		</div>
+		<nav>
 			<HeaderLink href="/">ホーム</HeaderLink>
 			<HeaderLink href="/blog">記事一覧</HeaderLink>
 			<HeaderLink href="/tags">タグ</HeaderLink>
-			<HeaderLink href="/about">このブログについて</HeaderLink>
-		</div>
-	</nav>
+			<HeaderLink href="/about">About</HeaderLink>
+		</nav>
+	</div>
 </header>
+
 <style>
 	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		background: linear-gradient(135deg, #FFD6E0 0%, #E8D5FF 50%, #C8F0E8 100%);
+		border-bottom: 2px solid rgba(255,255,255,0.6);
+		box-shadow: 0 2px 16px rgba(196, 150, 200, 0.18);
 	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
+	.header-inner {
+		max-width: 780px;
+		margin: 0 auto;
+		padding: 1.2em 1.5em 1em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.6em;
 	}
-	h2 a,
-	h2 a.active {
+	.site-title-wrap {
+		text-align: center;
+	}
+	.site-title {
+		font-size: 1.6em;
+		font-weight: 700;
+		color: #c05878;
 		text-decoration: none;
-		color: rgb(var(--black));
+		letter-spacing: 0.05em;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4em;
+	}
+	.site-title:hover {
+		color: #a03060;
+	}
+	.deco {
+		font-size: 0.75em;
+		opacity: 0.7;
+		color: var(--lavender-deep);
+	}
+	.site-sub {
+		margin: 0.2em 0 0;
+		font-size: 0.78em;
+		color: #a07090;
+		letter-spacing: 0.08em;
 	}
 	nav {
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
 		flex-wrap: wrap;
-		gap: 0.5em;
-		padding: 0.5em 0;
-	}
-	nav a {
-		padding: 0.5em 0.6em;
-		color: rgb(var(--gray-dark));
-		border-bottom: 3px solid transparent;
-		text-decoration: none;
-		font-size: 0.95em;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.internal-links {
-		display: flex;
-		flex-wrap: wrap;
+		justify-content: center;
 		gap: 0.2em;
 	}
-	@media (max-width: 720px) {
-		h2 {
-			font-size: 0.95em;
-		}
+	nav :global(a) {
+		padding: 0.35em 1em;
+		font-size: 0.88em;
+		font-weight: 500;
+		color: #8060a0;
+		text-decoration: none;
+		border-radius: 20px;
+		background: rgba(255,255,255,0.5);
+		border: 1.5px solid transparent;
+		transition: 0.2s ease;
+	}
+	nav :global(a:hover),
+	nav :global(a.active) {
+		background: white;
+		border-color: var(--pink);
+		color: var(--accent-dark);
 	}
 </style>

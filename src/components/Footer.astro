@@ -3,22 +3,33 @@ const today = new Date();
 ---
 
 <footer>
-	<p>&copy; {today.getFullYear()} ヘンボッケ日和</p>
-	<p class="note">韓ドラに幸せをもらいながら、今日も沼に落ちる日々。</p>
+	<div class="footer-deco">𓆸 𓆸 𓆸</div>
+	<p class="copy">&copy; {today.getFullYear()} ヘンボッケ日和</p>
+	<p class="tagline">韓ドラに幸せをもらいながら、今日も沼に落ちる日々。</p>
 </footer>
+
 <style>
 	footer {
-		padding: 2em 1em 4em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
+		padding: 2.5em 1em 3.5em;
+		background: linear-gradient(135deg, #FFD6E0 0%, #E8D5FF 50%, #C8F0E8 100%);
 		text-align: center;
+		border-top: 2px solid rgba(255,255,255,0.6);
 	}
-	footer p {
-		margin: 0.3em 0;
-		font-size: 0.9em;
+	.footer-deco {
+		font-size: 1.2em;
+		margin-bottom: 0.8em;
+		opacity: 0.5;
+		letter-spacing: 0.5em;
 	}
-	.note {
-		font-size: 0.8em;
-		color: rgb(var(--gray));
+	.copy {
+		margin: 0 0 0.3em;
+		font-size: 0.85em;
+		font-weight: 600;
+		color: #c05878;
+	}
+	.tagline {
+		margin: 0;
+		font-size: 0.78em;
+		color: #a07090;
 	}
 </style>

@@ -26,47 +26,56 @@ const { title, description, pubDate, updatedDate, heroImage, tags = [] } = Astro
 			.hero-image img {
 				display: block;
 				margin: 0 auto;
-				border-radius: 12px;
+				border-radius: 16px;
 				box-shadow: var(--box-shadow);
 			}
 			.prose {
 				width: 720px;
 				max-width: calc(100% - 2em);
 				margin: auto;
-				padding: 1em;
+				padding: 1.5em 1em;
 				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-				font-size: 1.8em;
-				line-height: 1.4;
-			}
-			.meta {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-				font-size: 0.9em;
-			}
-			.last-updated-on {
-				font-style: italic;
-				font-size: 0.85em;
-			}
-			.post-tags {
-				margin: 0.8em 0 0.5em 0;
 			}
 			.back-link {
 				display: inline-block;
 				margin-bottom: 1.5em;
-				font-size: 0.9em;
+				font-size: 0.88em;
 				color: rgb(var(--gray));
 				text-decoration: none;
+				padding: 0.3em 0.8em;
+				background: white;
+				border: 1.5px solid rgb(var(--gray-light));
+				border-radius: 20px;
+				transition: 0.2s;
 			}
 			.back-link:hover {
-				color: var(--accent);
+				border-color: var(--pink);
+				color: var(--accent-dark);
+			}
+			.title {
+				margin-bottom: 1.2em;
+				padding: 1.5em;
+				background: linear-gradient(135deg, #FFF0F3 0%, #F5EFFF 50%, #EDFAF7 100%);
+				border-radius: 16px;
+				border: 1.5px solid rgba(255, 183, 197, 0.35);
+			}
+			.title h1 {
+				margin: 0 0 0.5em;
+				font-size: 1.6em;
+				line-height: 1.4;
+				color: rgb(var(--black));
+			}
+			.meta {
+				font-size: 0.85em;
+				color: rgb(var(--gray));
+				margin-bottom: 0.8em;
+			}
+			.last-updated-on {
+				font-style: italic;
+				font-size: 0.9em;
+			}
+			.post-tags {
+				margin-top: 0.8em;
 			}
 		</style>
 	</head>
@@ -103,7 +112,6 @@ const { title, description, pubDate, updatedDate, heroImage, tags = [] } = Astro
 								</div>
 							)
 						}
-						<hr />
 					</div>
 					<slot />
 				</div>

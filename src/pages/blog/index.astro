@@ -19,12 +19,14 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
-			<h1 class="page-title">記事一覧</h1>
+			<h1 class="page-title">
+				<span>📋</span> 記事一覧
+			</h1>
 			<ul class="post-list">
 				{
 					posts.map((post) => (
 						<li>
-							<a href={`/blog/${post.id}/`}>
+							<a href={`/blog/${post.id}/`} class="post-card">
 								<h2 class="post-title">{post.data.title}</h2>
 								<p class="post-date">
 									<FormattedDate date={post.data.pubDate} />
@@ -48,48 +50,36 @@ const posts = (await getCollection('blog')).sort(
 </html>
 <style>
 	.page-title {
-		font-size: 1.5em;
+		font-size: 1.3em;
 		margin-bottom: 1.5em;
-		padding-bottom: 0.5em;
-		border-bottom: 2px solid rgb(var(--gray-light));
+		padding-bottom: 0.6em;
+		border-bottom: 2px dashed var(--pink);
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
 	}
 	.post-list {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-	}
-	.post-list li {
-		margin-bottom: 1.2em;
-	}
-	.post-list a {
-		display: block;
-		text-decoration: none;
-		color: inherit;
-		padding: 1.2em;
-		border: 1px solid rgb(var(--gray-light));
-		border-radius: 8px;
-		transition: 0.2s ease;
-	}
-	.post-list a:hover {
-		border-color: var(--accent);
-		box-shadow: var(--box-shadow);
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
 	}
 	.post-title {
-		font-size: 1.1em;
-		margin: 0 0 0.3em 0;
+		font-size: 1.05em;
+		margin: 0 0 0.3em;
 		color: rgb(var(--black));
 	}
 	.post-date {
-		font-size: 0.85em;
+		font-size: 0.82em;
 		color: rgb(var(--gray));
-		margin: 0 0 0.5em 0;
+		margin: 0 0 0.5em;
 	}
 	.post-desc {
-		font-size: 0.9em;
+		font-size: 0.88em;
 		color: rgb(var(--gray-dark));
-		margin: 0 0 0.7em 0;
+		margin: 0 0 0.6em;
 	}
-	.tags {
-		margin-top: 0.5em;
-	}
+	.tags { margin-top: 0.4em; }
 </style>

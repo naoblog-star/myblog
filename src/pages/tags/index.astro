@@ -25,11 +25,13 @@ const tags = Object.entries(tagCount).sort((a, b) => b[1] - a[1]);
 	<body>
 		<Header />
 		<main>
-			<h1 class="page-title">タグ一覧</h1>
+			<h1 class="page-title">
+				<span>🏷️</span> タグ一覧
+			</h1>
 			<div class="tag-cloud">
 				{
-					tags.map(([tag, count]) => (
-						<a href={`/tags/${tag}/`} class="tag-item">
+					tags.map(([tag, count], i) => (
+						<a href={`/tags/${tag}/`} class:list={['tag-item', `color-${(i % 3) + 1}`]}>
 							{tag}
 							<span class="count">{count}</span>
 						</a>
@@ -42,10 +44,13 @@ const tags = Object.entries(tagCount).sort((a, b) => b[1] - a[1]);
 </html>
 <style>
 	.page-title {
-		font-size: 1.5em;
+		font-size: 1.3em;
 		margin-bottom: 1.5em;
-		padding-bottom: 0.5em;
-		border-bottom: 2px solid rgb(var(--gray-light));
+		padding-bottom: 0.6em;
+		border-bottom: 2px dashed var(--pink);
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
 	}
 	.tag-cloud {
 		display: flex;
@@ -55,23 +60,26 @@ const tags = Object.entries(tagCount).sort((a, b) => b[1] - a[1]);
 	.tag-item {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.4em;
-		background: rgb(var(--gray-light));
-		color: rgb(var(--gray-dark));
-		padding: 0.4em 1em;
-		border-radius: 20px;
+		gap: 0.5em;
+		padding: 0.45em 1.1em;
+		border-radius: 24px;
 		text-decoration: none;
-		font-size: 0.95em;
+		font-size: 0.92em;
+		font-weight: 500;
 		transition: 0.2s ease;
+		border: 1.5px solid transparent;
 	}
 	.tag-item:hover {
-		background: var(--accent);
-		color: white;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(196, 150, 200, 0.25);
 	}
+	.color-1 { background: var(--pink-light); color: var(--accent-dark); border-color: var(--pink); }
+	.color-2 { background: var(--lavender-light); color: var(--lavender-deep); border-color: var(--lavender); }
+	.color-3 { background: var(--mint-light); color: var(--mint-deep); border-color: var(--mint); }
 	.count {
-		background: rgba(0, 0, 0, 0.12);
+		background: rgba(0,0,0,0.07);
 		border-radius: 10px;
 		padding: 0.1em 0.5em;
-		font-size: 0.8em;
+		font-size: 0.78em;
 	}
 </style>
