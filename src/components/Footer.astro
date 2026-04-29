@@ -1,0 +1,24 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<p>&copy; {today.getFullYear()} ドラマと子育ての日々</p>
+	<p class="note">韓国ドラマ・子育て・教育について書いています</p>
+</footer>
+<style>
+	footer {
+		padding: 2em 1em 4em 1em;
+		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		color: rgb(var(--gray));
+		text-align: center;
+	}
+	footer p {
+		margin: 0.3em 0;
+		font-size: 0.9em;
+	}
+	.note {
+		font-size: 0.8em;
+		color: rgb(var(--gray));
+	}
+</style>
